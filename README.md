@@ -1,2 +1,2 @@
 # ConnectFour-with-UI
-Connect Four game with UI in JavaFX
+Connect Four game with UI with JavaFX
