@@ -10,6 +10,7 @@ module com.example.connectfourwithui {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
+    requires fontawesomefx;
 
     opens com.example.connectfourwithui to javafx.fxml;
     exports com.example.connectfourwithui;
