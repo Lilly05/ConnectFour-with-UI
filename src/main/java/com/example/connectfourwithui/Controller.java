@@ -11,13 +11,15 @@ import org.controlsfx.glyphfont.FontAwesome;
 
 public class Controller {
 
+    private boolean player = true;
+
     @FXML
     private GridPane grid;
 
     @FXML
     protected void onButtonOne() {
         FontAwesomeIcon icon = new FontAwesomeIcon();
-        icon.setGlyphName("APPLE");
+        icon.setGlyphName(playerIconName(player));
         icon.setSize("2em");
         for (int row = 4; row >= 0; row--){
             if(row == 0) {
@@ -26,6 +28,7 @@ public class Controller {
                 break;
             }else if (isIconRemoved(row, null, grid)){
                 grid.add(icon, 0, row);
+                switchPlayer();
                 break;
             }
         }
@@ -33,32 +36,32 @@ public class Controller {
 
     @FXML
     protected void onButtonTwo(){
-        setIcon(1, "APPLE");
+        setIcon(1, playerIconName(player));
     }
 
     @FXML
     protected void onButtonThree(){
-        setIcon(2, "APPLE");
+        setIcon(2, playerIconName(player));
     }
 
     @FXML
     protected void onButtonFour(){
-        setIcon(3, "APPLE");
+        setIcon(3, playerIconName(player));
     }
 
     @FXML
     protected void onButtonFive(){
-        setIcon(4, "APPLE");
+        setIcon(4, playerIconName(player));
     }
 
     @FXML
     protected void onButtonSix(){
-        setIcon(5, "APPLE");
+        setIcon(5, playerIconName(player));
     }
 
     @FXML
     protected void onButtonSeven(){
-        setIcon(6, "APPLE");
+        setIcon(6, playerIconName(player));
     }
 
     public void setIcon(Integer column, String iconName){
@@ -68,6 +71,9 @@ public class Controller {
         for (int row = 4; row >= 0; row--){
             if(isIconRemoved(row, column, grid)){
                 grid.add(icon, column, row);
+                if(row != 0) {
+                    switchPlayer();
+                }
                 break;
             }
         }
@@ -76,6 +82,7 @@ public class Controller {
 
     public boolean isIconRemoved(Integer row, Integer column, GridPane grid) {
         ObservableList<Node> childrens = grid.getChildren();
+        FontAwesomeIcon parsedIcon;
 
         for (Node child : childrens) {
             if(row == 0) {
@@ -83,7 +90,7 @@ public class Controller {
                 return true;
             }
             if(GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == column) {
-                FontAwesomeIcon parsedIcon = (FontAwesomeIcon) child;
+                parsedIcon = (FontAwesomeIcon) child;
                 if(parsedIcon.getGlyphName().equals("CIRCLE_THIN")) {
                     grid.getChildren().removeIf(node -> (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column));
                     return true;
@@ -91,5 +98,17 @@ public class Controller {
             }
         }
         return false;
+    }
+
+    public void switchPlayer(){
+        this.player = !this.player;
+    }
+
+    public String playerIconName(boolean player){
+        if(player){
+            return "APPLE";
+        }else{
+            return "LINUX";
+        }
     }
 }
