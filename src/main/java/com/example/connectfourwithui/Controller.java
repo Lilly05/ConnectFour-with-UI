@@ -12,24 +12,6 @@ import org.controlsfx.glyphfont.FontAwesome;
 public class Controller {
 
     @FXML
-    private FontAwesomeIcon iconOne;
-
-    @FXML
-    protected void onButton(){
-        iconOne.setGlyphName("APPLE");
-    }
-
-    @FXML
-    private FontAwesomeIcon iconTwo;
-
-    @FXML
-    protected void onSecondButton(){
-        iconTwo.setGlyphName("LINUX");
-    }
-
-    // :)
-
-    @FXML
     private GridPane grid;
 
     @FXML
@@ -37,22 +19,30 @@ public class Controller {
         FontAwesomeIcon icon = new FontAwesomeIcon();
         icon.setGlyphName("APPLE");
         icon.setSize("2em");
-        grid.getChildren().removeIf(node -> (!(GridPane.getRowIndex(node) == null) && GridPane.getRowIndex(node) == 4) && (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0));
-        grid.add(icon, 0, 4);
-        }
-
-
-    public Node getNodeByRowColumnIndex (int row, int column, GridPane grid) {
-        Node result = null;
-        ObservableList<Node> childrens = grid.getChildren();
-
-        for (Node node : childrens) {
-            if(grid.getRowIndex(node) == row && grid.getColumnIndex(node) == column) {
-                result = node;
+        /*grid.getChildren().removeIf(node -> (!(GridPane.getRowIndex(node) == null) && GridPane.getRowIndex(node) == 4) && (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0));
+        grid.add(icon, 0, 4);*/
+        for (int row = 4; row >= 0; row--){
+            if(isIconRemoved(row, null, grid, icon)){
+                grid.add(icon, 0, row);
                 break;
             }
         }
+        }
 
-        return result;
+
+    public boolean isIconRemoved(Integer row, Integer column, GridPane grid, FontAwesomeIcon icon) {
+        ObservableList<Node> childrens = grid.getChildren();
+
+        if(row == 0){
+            grid.getChildren().removeIf(node -> (GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == 0) && (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0));
+            return true;
+        }
+        for (Node child : childrens) {
+            if(GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == column) {
+                grid.getChildren().removeIf(node -> (!(GridPane.getRowIndex(node) == null) && GridPane.getRowIndex(node) == row) && (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0));
+                return true;
+            }
+        }
+        return false;
     }
 }
