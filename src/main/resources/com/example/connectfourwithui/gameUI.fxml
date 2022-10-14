@@ -76,32 +76,32 @@
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
       </Button>
-      <Button fx:id="buttonTwo" layoutX="145.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="55.0">
+      <Button fx:id="buttonTwo" layoutX="145.0" layoutY="105.0" mnemonicParsing="false" onAction="#onButtonTwo" prefHeight="44.0" prefWidth="55.0">
          <graphic>
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
       </Button>
-      <Button fx:id="buttonThree" layoutX="245.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="55.0">
+      <Button fx:id="buttonThree" layoutX="245.0" layoutY="105.0" mnemonicParsing="false" onAction="#onButtonThree" prefHeight="44.0" prefWidth="55.0">
          <graphic>
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
       </Button>
-      <Button fx:id="buttonFour" layoutX="345.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="55.0">
+      <Button fx:id="buttonFour" layoutX="345.0" layoutY="105.0" mnemonicParsing="false" onAction="#onButtonFour" prefHeight="44.0" prefWidth="55.0">
          <graphic>
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
       </Button>
-      <Button fx:id="buttonFive" layoutX="445.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="55.0">
+      <Button fx:id="buttonFive" layoutX="445.0" layoutY="105.0" mnemonicParsing="false" onAction="#onButtonFive" prefHeight="44.0" prefWidth="55.0">
          <graphic>
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
       </Button>
-      <Button fx:id="buttonSix" layoutX="545.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="55.0">
+      <Button fx:id="buttonSix" layoutX="545.0" layoutY="105.0" mnemonicParsing="false" onAction="#onButtonSix" prefHeight="44.0" prefWidth="55.0">
          <graphic>
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
       </Button>
-      <Button fx:id="buttonSeven" layoutX="645.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="55.0">
+      <Button fx:id="buttonSeven" layoutX="645.0" layoutY="105.0" mnemonicParsing="false" onAction="#onButtonSeven" prefHeight="44.0" prefWidth="55.0">
          <graphic>
             <FontAwesomeIcon glyphName="CHEVRON_DOWN" size="2em" />
          </graphic>
