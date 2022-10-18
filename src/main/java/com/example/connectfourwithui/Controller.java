@@ -178,12 +178,12 @@ public class Controller{
 
     public void disableEnableButtons(){
         buttonOne.setDisable(!buttonOne.isDisabled());
-        buttonTwo.setDisable(true);
-        buttonThree.setDisable(true);
-        buttonFour.setDisable(true);
-        buttonFive.setDisable(true);
-        buttonSix.setDisable(true);
-        buttonSeven.setDisable(true);
+        buttonTwo.setDisable(!buttonTwo.isDisabled());
+        buttonThree.setDisable(!buttonThree.isDisabled());
+        buttonFour.setDisable(!buttonFour.isDisabled());
+        buttonFive.setDisable(!buttonFive.isDisabled());
+        buttonSix.setDisable(!buttonSix.isDisabled());
+        buttonSeven.setDisable(!buttonSeven.isDisabled());
     }
 
     public void restartGame(){
