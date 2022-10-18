@@ -14,4 +14,6 @@ module com.example.connectfourwithui {
 
     opens com.example.connectfourwithui to javafx.fxml;
     exports com.example.connectfourwithui;
+    exports com.example.connectfourwithui.GamePlay;
+    opens com.example.connectfourwithui.GamePlay to javafx.fxml;
 }

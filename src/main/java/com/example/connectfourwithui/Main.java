@@ -1,6 +1,7 @@
 package com.example.connectfourwithui;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gameUI.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 650, 350);
+        Scene scene = new Scene(fxmlLoader.load(), 780, 350);
         stage.setTitle("Connect Four");
         stage.setScene(scene);
         stage.show();
