@@ -4,12 +4,17 @@ import com.example.connectfourwithui.GamePlay.Spot;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import com.example.connectfourwithui.GamePlay.Grid;
+import javafx.scene.layout.RowConstraints;
+import org.controlsfx.control.spreadsheet.SpreadsheetCellEditor;
+import org.controlsfx.tools.Duplicatable;
 
 public class Controller{
 
@@ -21,6 +26,12 @@ public class Controller{
 
     @FXML
     private GridPane grid;
+
+    @FXML
+    private GridPane gridBlank;
+
+    @FXML
+    private AnchorPane PlayingScreen;
 
     @FXML
     private Label WinningText;
@@ -145,10 +156,10 @@ public class Controller{
     }
 
     public boolean isIconRemoved(Integer row, Integer column, GridPane grid) {
-        ObservableList<Node> childrens = grid.getChildren();
+        ObservableList<Node> children = grid.getChildren();
         FontAwesomeIcon parsedIcon;
 
-        for (Node child : childrens) {
+        for (Node child : children) {
             if(row == 0) {
                 grid.getChildren().removeIf(node -> (GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == row) && (GridPane.getColumnIndex(node) == column));
                 return true;
@@ -186,16 +197,77 @@ public class Controller{
         buttonSeven.setDisable(!buttonSeven.isDisabled());
     }
 
+    public void setEmptyGrid(GridPane emptyGridPane){
+        this.grid = emptyGridPane;
+        emptyGridPane.setOpacity(1);
+       /* GridPane newGridPane = new GridPane();
+        newGridPane.setId("test");
+        ObservableList<Node> kids = emptyGridPane.getChildren();
+        for (Node kid : kids){
+            if(GridPane.getColumnIndex(kid) == null && GridPane.getRowIndex(kid) == null) {
+                newGridPane.add(kid, 0, 0);
+            } else if(GridPane.getColumnIndex(kid) == null){
+                newGridPane.add(kid, 0, GridPane.getRowIndex(kid));
+            }else if(GridPane.getRowIndex(kid) == null){
+                newGridPane.add(kid, GridPane.getColumnIndex(kid), 0);
+            }else {
+                newGridPane.add(kid, GridPane.getColumnIndex(kid), GridPane.getRowIndex(kid));
+            }
+        }
+        System.out.println(newGridPane.getId());
+        System.out.println(emptyGridPane.getId());*/
+    }
+
     public void restartGame(){
-        grid.getChildren().removeIf(node -> true);
-        FontAwesomeIcon newIcon = new FontAwesomeIcon();
+        disableEnableButtons();
+        this.gridArray = new Grid();
+        this.player1 = new Spot(Spot.Symbol.O, gridArray);
+        this.player2 = new Spot(Spot.Symbol.X, gridArray);
+        WinningText.setOpacity(0);
+        WinningIcon.setOpacity(0);
+        RestartButton.setOpacity(0);
+        RestartButton.setDisable(true);
+        this.grid.getChildren().clear();
+        setEmptyGrid(gridBlank);
+
+
+        /*FontAwesomeIcon newIcon = new FontAwesomeIcon();
         newIcon.setGlyphName("CIRCLE_THIN");
         newIcon.setSize("2em");
-        /*disableEnableButtons();
-       for (int column = 6; column >= 0; column--){
-           for (int row = 4; row >= 0; row--){
-               grid.add(newIcon, column, row);
-           }
-       }*/
+        ObservableList<Node> children = grid.getChildren();
+        FontAwesomeIcon parsedIcon;
+        for(Node child : children) {
+            parsedIcon = (FontAwesomeIcon) child;
+            if(parsedIcon.getGlyphName().equals("APPLE") || parsedIcon.getGlyphName().equals("LINUX")){
+                Integer row = GridPane.getRowIndex(child);
+                Integer column = GridPane.getColumnIndex(child);
+                if(row == 0 && column == 0){
+                    grid.getChildren().removeIf(node -> (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0) && (GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == 0));
+                }else if(row == 0 ^ column == 0){
+                    grid.getChildren().removeIf(node -> (((GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == 0) && GridPane.getColumnIndex(node) == column) || (GridPane.getRowIndex(node) == row && (GridPane.getColumnIndex(node) == null || GridPane.getRowIndex(node) == 0))));
+                }else {
+                    grid.getChildren().removeIf(node -> (GridPane.getColumnIndex(node) == column) && (GridPane.getRowIndex(node) == row));
+                }
+
+                System.out.println("Row " + GridPane.getRowIndex(child));
+                System.out.println("Column: " + GridPane.getColumnIndex(child));
+            }
+        }
+        /*PlayingScreen.getChildren().remove(grid);
+        GridPane grid = new GridPane();
+        grid.setLayoutX(60);
+        grid.setLayoutY(165);
+        PlayingScreen.getChildren().add(grid);
+        for (int columns = 0; columns <= 6; columns++) {
+            ColumnConstraints column = new ColumnConstraints(100);
+            grid.getColumnConstraints().add(column);
+        }
+
+        for (int rows = 0; rows <= 4; rows++){
+            RowConstraints row = new RowConstraints(30);
+            grid.getRowConstraints().add(row);
+        }
+        grid.add(newIcon, 6, 0);
+        grid.add(newIcon, 5, 2);*/
     }
 }
