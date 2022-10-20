@@ -63,38 +63,8 @@ public class Controller{
 
     @FXML
     protected void onButtonOne() {
-        FontAwesomeIcon icon = new FontAwesomeIcon();
-        icon.setGlyphName(playerIconName(player));
-        icon.setSize("2em");
-        for (int row = 4; row >= 0; row--){
-            if(row == 0) {
-                grid.getChildren().removeIf(node -> (GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == 0) && (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0));
-                grid.add(icon, 0, 0);
-                if(player){
-                    player1.setSymbol(0);
-                }else{
-                    player2.setSymbol(0);
-                }
-                break;
-            }else if (isIconRemoved(row, null, grid)){
-                grid.add(icon, 0, row);
-                if(player){
-                    player1.setSymbol(0);
-                }else{
-                    player2.setSymbol(0);
-                }
-                switchPlayer();
-                break;
-            }
-        }
-        if(gridArray.winGame()){
-            disableEnableButtons();
-            WinningIcon.setGlyphName(playerIconName(!player));
-            WinningText.setOpacity(1);
-            RestartButton.setDisable(false);
-            RestartButton.setOpacity(1);
-        }
-        }
+        setIcon(0, playerIconName(player));
+    }
 
     @FXML
     protected void onButtonTwo(){

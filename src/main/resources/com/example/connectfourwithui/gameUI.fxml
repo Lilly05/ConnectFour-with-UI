@@ -34,35 +34,35 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="1" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="2" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="3" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="4" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="5" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="6" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="1" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="6" GridPane.rowIndex="0"/>
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="1" GridPane.columnIndex="0" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="2" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="2" GridPane.columnIndex="0" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="5" GridPane.rowIndex="2" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="3" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="3" GridPane.columnIndex="0" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="5" GridPane.rowIndex="3" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="4" />
+            <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.rowIndex="4" GridPane.columnIndex="0" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" text="" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <FontAwesomeIcon glyphName="CIRCLE_THIN" size="2em" GridPane.columnIndex="3" GridPane.rowIndex="4" />
