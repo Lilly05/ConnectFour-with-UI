@@ -4,18 +4,12 @@ import com.example.connectfourwithui.GamePlay.Spot;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import com.example.connectfourwithui.GamePlay.Grid;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.text.Font;
-import org.controlsfx.control.spreadsheet.SpreadsheetCellEditor;
-import org.controlsfx.tools.Duplicatable;
+
 
 public class Controller{
 
@@ -27,9 +21,6 @@ public class Controller{
 
     @FXML
     private GridPane grid;
-
-    @FXML
-    private AnchorPane PlayingScreen;
 
     @FXML
     private Label WinningText;
@@ -108,13 +99,10 @@ public class Controller{
                 }else{
                     player2.setSymbol(column);
                 }
-                if(row != 0) {
-                    switchPlayer();
-                }
+                switchPlayer();
                 if(gridArray.winGame()){
                     WinningIcon.setGlyphName(playerIconName(!player));
                     WinningText.setOpacity(1);
-                    RestartButton.setDisable(false);
                     RestartButton.setOpacity(1);
                     disableEnableButtons();
                 }
@@ -128,10 +116,6 @@ public class Controller{
         FontAwesomeIcon parsedIcon;
 
         for (Node child : children) {
-            if(row == 0) {
-                grid.getChildren().removeIf(node -> (GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == row) && (GridPane.getColumnIndex(node) == column));
-                return true;
-            }
             if(GridPane.getRowIndex(child) == row && GridPane.getColumnIndex(child) == column) {
                 parsedIcon = (FontAwesomeIcon) child;
                 if(parsedIcon.getGlyphName().equals("CIRCLE_THIN")) {
@@ -163,6 +147,7 @@ public class Controller{
         buttonFive.setDisable(!buttonFive.isDisabled());
         buttonSix.setDisable(!buttonSix.isDisabled());
         buttonSeven.setDisable(!buttonSeven.isDisabled());
+        RestartButton.setDisable(!RestartButton.isDisabled());
     }
 
     public void setEmptyGrid(int column, int row, String iconName){
@@ -188,7 +173,6 @@ public class Controller{
         WinningText.setOpacity(0);
         WinningIcon.setOpacity(0);
         RestartButton.setOpacity(0);
-        RestartButton.setDisable(true);
         this.grid.getChildren().clear();
         loopThroughGrid();
     }
