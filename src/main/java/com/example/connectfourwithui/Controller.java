@@ -13,6 +13,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import com.example.connectfourwithui.GamePlay.Grid;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.text.Font;
 import org.controlsfx.control.spreadsheet.SpreadsheetCellEditor;
 import org.controlsfx.tools.Duplicatable;
 
@@ -26,9 +27,6 @@ public class Controller{
 
     @FXML
     private GridPane grid;
-
-    @FXML
-    private GridPane gridBlank;
 
     @FXML
     private AnchorPane PlayingScreen;
@@ -197,25 +195,19 @@ public class Controller{
         buttonSeven.setDisable(!buttonSeven.isDisabled());
     }
 
-    public void setEmptyGrid(GridPane emptyGridPane){
-        this.grid = emptyGridPane;
-        emptyGridPane.setOpacity(1);
-       /* GridPane newGridPane = new GridPane();
-        newGridPane.setId("test");
-        ObservableList<Node> kids = emptyGridPane.getChildren();
-        for (Node kid : kids){
-            if(GridPane.getColumnIndex(kid) == null && GridPane.getRowIndex(kid) == null) {
-                newGridPane.add(kid, 0, 0);
-            } else if(GridPane.getColumnIndex(kid) == null){
-                newGridPane.add(kid, 0, GridPane.getRowIndex(kid));
-            }else if(GridPane.getRowIndex(kid) == null){
-                newGridPane.add(kid, GridPane.getColumnIndex(kid), 0);
-            }else {
-                newGridPane.add(kid, GridPane.getColumnIndex(kid), GridPane.getRowIndex(kid));
+    public void setEmptyGrid(int column, int row, String iconName){
+        FontAwesomeIcon circle = new FontAwesomeIcon();
+        circle.setGlyphName(iconName);
+        circle.setSize("2em");
+        grid.add(circle, column, row);
+    }
+
+    public void loopThroughGrid(){
+        for (int column = 6; column >= 0; column--){
+            for (int row = 4; row >= 0; row--){
+                setEmptyGrid(column, row, "CIRCLE_THIN");
             }
         }
-        System.out.println(newGridPane.getId());
-        System.out.println(emptyGridPane.getId());*/
     }
 
     public void restartGame(){
@@ -228,46 +220,6 @@ public class Controller{
         RestartButton.setOpacity(0);
         RestartButton.setDisable(true);
         this.grid.getChildren().clear();
-        setEmptyGrid(gridBlank);
-
-
-        /*FontAwesomeIcon newIcon = new FontAwesomeIcon();
-        newIcon.setGlyphName("CIRCLE_THIN");
-        newIcon.setSize("2em");
-        ObservableList<Node> children = grid.getChildren();
-        FontAwesomeIcon parsedIcon;
-        for(Node child : children) {
-            parsedIcon = (FontAwesomeIcon) child;
-            if(parsedIcon.getGlyphName().equals("APPLE") || parsedIcon.getGlyphName().equals("LINUX")){
-                Integer row = GridPane.getRowIndex(child);
-                Integer column = GridPane.getColumnIndex(child);
-                if(row == 0 && column == 0){
-                    grid.getChildren().removeIf(node -> (GridPane.getColumnIndex(node) == null || GridPane.getColumnIndex(node) == 0) && (GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == 0));
-                }else if(row == 0 ^ column == 0){
-                    grid.getChildren().removeIf(node -> (((GridPane.getRowIndex(node) == null || GridPane.getRowIndex(node) == 0) && GridPane.getColumnIndex(node) == column) || (GridPane.getRowIndex(node) == row && (GridPane.getColumnIndex(node) == null || GridPane.getRowIndex(node) == 0))));
-                }else {
-                    grid.getChildren().removeIf(node -> (GridPane.getColumnIndex(node) == column) && (GridPane.getRowIndex(node) == row));
-                }
-
-                System.out.println("Row " + GridPane.getRowIndex(child));
-                System.out.println("Column: " + GridPane.getColumnIndex(child));
-            }
-        }
-        /*PlayingScreen.getChildren().remove(grid);
-        GridPane grid = new GridPane();
-        grid.setLayoutX(60);
-        grid.setLayoutY(165);
-        PlayingScreen.getChildren().add(grid);
-        for (int columns = 0; columns <= 6; columns++) {
-            ColumnConstraints column = new ColumnConstraints(100);
-            grid.getColumnConstraints().add(column);
-        }
-
-        for (int rows = 0; rows <= 4; rows++){
-            RowConstraints row = new RowConstraints(30);
-            grid.getRowConstraints().add(row);
-        }
-        grid.add(newIcon, 6, 0);
-        grid.add(newIcon, 5, 2);*/
+        loopThroughGrid();
     }
 }
