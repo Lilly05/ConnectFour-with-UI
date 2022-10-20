@@ -1,5 +1,4 @@
 package com.example.connectfourwithui.GamePlay;
-import com.example.connectfourwithui.GamePlay.Grid;
 
 import java.util.Scanner;
 
@@ -20,7 +19,7 @@ public class Spot {
         this.setColumn(column);
         boolean isSymbolSet = false;
         for (int i = 0; i < this.grid.getGridLength(); i++) {
-            for (int row = 6; row > 0; row--) { // For the symbol to be at the bottom, not at the top of the column
+            for (int row = 5; row >= 0; row--) { // For the symbol to be at the bottom, not at the top of the column
                 if (this.grid.getExactField(row, this.column).equals("_")) {
                     this.grid.setGrid(this.symbol, row, this.column);
                     isSymbolSet = true;
@@ -42,4 +41,3 @@ public class Spot {
         this.column = column;
     }
 }
-

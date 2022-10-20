@@ -5,7 +5,6 @@ public class Grid {
 
     public Grid() {
         this.grid = new String[][]{
-                {"1", "2", "3", "4", "5", "6", "7"},
                 {"_", "_", "_", "_", "_", "_", "_"},
                 {"_", "_", "_", "_", "_", "_", "_"},
                 {"_", "_", "_", "_", "_", "_", "_"},
@@ -109,82 +108,66 @@ public class Grid {
                 if (grid[column][row].equals(Spot.Symbol.X.toString())){
                     countSymbolsX++;
                     for(int checks = 0; checks <= 4; checks++) {
-                        if (column2 - 1 >= 0){
+                        if (column2 - 1 >= 0 && row2 + 1 <= 6){
                             column2--;
-                            if (row2 + 1 <= 6){
-                                row2++;
-                            }else{
-                                break;
+                            row2++;
+                            if (grid[column2][row2].equals(Spot.Symbol.X.toString())) {
+                                countSymbolsX++;
+                                if (countSymbolsX == 4) {
+                                    return true;
+                                }
                             }
                         }else{
                             break;
-                        }
-                        if (grid[column2][row2].equals(Spot.Symbol.X.toString())) {
-                            countSymbolsX++;
-                            if (countSymbolsX == 4) {
-                                return true;
-                            }
                         }
                     }
                     column2 = column;
                     row2 = row;
                     for(int checks = 0; checks <= 4; checks++) {
-                        if (column2 - 1 >= 0) {
+                        if (column2 - 1 >= 0 && row2 -1 >= 0) {
                             column2--;
-                            if(row2 - 1 >= 0){
-                                row2--;
-                            }else{
-                                break;
+                            row2--;
+                            if (grid[column2][row2].equals(Spot.Symbol.X.toString())) {
+                                countSymbolsX++;
+                                if(countSymbolsX == 4){
+                                    return true;
+                                }
                             }
                         }else{
                             break;
-                        }
-                        if (grid[column2][row2].equals(Spot.Symbol.X.toString())) {
-                            countSymbolsX++;
-                            if(countSymbolsX == 4){
-                                return true;
-                            }
                         }
                     }
                 }
                 if (grid[column][row].equals(Spot.Symbol.O.toString())){
                     countSymbolsO++;
                     for(int checks = 0; checks <= 4; checks++) {
-                        if (column2 - 1 >= 0){
+                        if (column2 - 1 >= 0 && row2 + 1 <= 6){
                             column2--;
-                            if (row2 + 1 <= 6){
-                                row2++;
-                            }else{
-                                break;
+                            row2++;
+                            if (grid[column2][row2].equals(Spot.Symbol.O.toString())) {
+                                countSymbolsO++;
+                                if (countSymbolsO == 4) {
+                                    return true;
+                                }
                             }
                         }else{
                             break;
-                        }
-                        if (grid[column2][row2].equals(Spot.Symbol.O.toString())) {
-                            countSymbolsO++;
-                            if (countSymbolsO == 4) {
-                                return true;
-                            }
                         }
                     }
                     column2 = column;
                     row2 = row;
                     for(int checks = 0; checks <= 4; checks++) {
-                        if (column2 - 1 >= 0) {
+                        if (column2 - 1 >= 0 && row2 -1 >= 0) {
                             column2--;
-                            if(row2 - 1 >= 0){
-                                row2--;
-                            }else{
-                                break;
+                            row2--;
+                            if (grid[column2][row2].equals(Spot.Symbol.O.toString())) {
+                                countSymbolsO++;
+                                if(countSymbolsO == 4){
+                                    return true;
+                                }
                             }
                         }else{
                             break;
-                        }
-                        if (grid[column2][row2].equals(Spot.Symbol.O.toString())) {
-                            countSymbolsO++;
-                            if(countSymbolsO == 4){
-                                return true;
-                            }
                         }
                     }
                 }
