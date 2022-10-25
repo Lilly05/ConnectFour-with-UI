@@ -116,6 +116,8 @@ public class Grid {
                                 if (countSymbolsX == 4) {
                                     return true;
                                 }
+                            }else{
+                                countSymbolsX = 1;
                             }
                         }else{
                             break;
@@ -132,12 +134,16 @@ public class Grid {
                                 if(countSymbolsX == 4){
                                     return true;
                                 }
+                            }else{
+                                countSymbolsX = 1;
                             }
                         }else{
                             break;
                         }
                     }
                 }
+                column2 = column;
+                row2 = row;
                 if (grid[column][row].equals(Spot.Symbol.O.toString())){
                     countSymbolsO++;
                     for(int checks = 0; checks <= 4; checks++) {
@@ -149,6 +155,8 @@ public class Grid {
                                 if (countSymbolsO == 4) {
                                     return true;
                                 }
+                            }else{
+                                countSymbolsO = 1;
                             }
                         }else{
                             break;
@@ -165,6 +173,8 @@ public class Grid {
                                 if(countSymbolsO == 4){
                                     return true;
                                 }
+                            }else{
+                                countSymbolsO = 1;
                             }
                         }else{
                             break;
