@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import com.example.connectfourwithui.GamePlay.Grid;
 
-
 public class Controller{
 
     private boolean player = true;
